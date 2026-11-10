@@ -1,0 +1,96 @@
+{
+  "descricao": "Perfis de cliente do neuro-ads-manager. A skill traz só o `modelo`, ponto de partida genérico; os perfis dos seus clientes ficam na sua máquina, em ~/.neuro-ads-manager/perfis/<id>.json (crie com `neuro-ads-manager perfil novo --base modelo`). Um perfil não guarda IDs de conta, pixel, página, formulário, tokens nem dados pessoais: só o nome das variáveis de ambiente onde ficam. O que não estiver definido fica null e é combinado com o cliente.",
+  "versao": 1,
+  "perfis": {
+    "modelo": {
+      "nome": "Modelo de perfil",
+      "segmento": "geral",
+      "descricao": "Ponto de partida para um cliente novo. Copie com `neuro-ads-manager perfil novo --base modelo`.",
+      "plataformas": [
+        "meta"
+      ],
+      "ambiente": {
+        "token_env": "META_ACCESS_TOKEN",
+        "conta_env": "META_AD_ACCOUNT_ID",
+        "dataset_env": "META_DATASET_ID",
+        "crm": null
+      },
+      "fuso": "America/Sao_Paulo",
+      "moeda": "BRL",
+      "kpi": {
+        "objetivo": "leads",
+        "nome_resultado": "Resultados",
+        "resultado": [
+          "lead",
+          "onsite_conversion.lead_grouped",
+          "offsite_conversion.fb_pixel_lead",
+          "onsite_conversion.messaging_conversation_started_7d"
+        ],
+        "cpr_alvo": null,
+        "evento_decisor": null,
+        "nota": "O evento decisor é o que vira receita (lead qualificado, agenda, venda). O CPL sozinho não decide pausa nem escala."
+      },
+      "regras_decisao": {
+        "pausar": {
+          "cpr_acima": null,
+          "gasto_min": null
+        },
+        "congelar": {
+          "frequencia_acima": 3.5
+        },
+        "escalar": {
+          "cpr_ate": null,
+          "dias": 3,
+          "aumento_pct": 20,
+          "intervalo_h": 72
+        }
+      },
+      "publicos": {
+        "idade_min": 18,
+        "exclusoes": true,
+        "advantage_audience": true
+      },
+      "orcamento": {
+        "mensal": null,
+        "modelo": "ABO ou CBO conforme o teste",
+        "reduzir_antes_de_aumentar": true
+      },
+      "criativos": {
+        "formatos": [
+          "Reels 9:16",
+          "Feed 4:5",
+          "Stories 9:16"
+        ],
+        "cta": null,
+        "aprimoramentos_meta": "decidir por segmento",
+        "teste": "campeão + 1 desafiante por conjunto; uma variável por vez"
+      },
+      "mensuracao": {
+        "pixel": true,
+        "capi": false,
+        "conversao_offline": false,
+        "atribuicao": "7 dias após clique + 1 dia após visualização (padrão da Meta; confirmar)",
+        "url_tags": "padrao"
+      },
+      "compliance": {
+        "regras": [
+          "meta_politicas",
+          "lgpd"
+        ],
+        "categorias_especiais": []
+      },
+      "cadencia": {
+        "monitoramento": "diário",
+        "leituras": [
+          "D+3 sem veredito",
+          "D+7 decide poda ou escala"
+        ],
+        "relatorio": "semanal e mensal"
+      },
+      "aprovacao": {
+        "aprovador": "responsável da conta (aprovador único)",
+        "mudancas_exigem_plano": true
+      }
+    }
+  }
+}

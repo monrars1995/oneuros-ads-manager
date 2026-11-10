@@ -1,0 +1,6 @@
+# neuro-ads-manager: insere o provedor de skills do plugin no perfil do Neuro Harness.
+# Ele registra a skill `neuro-ads-manager` e os comandos `neuro-ads-*` no serviço `skills`
+# (do @deepseek-ai/dsh-skill, que já vem no bundle @deepseek-ai/dsh-base).
+- insert:
+    - id: neuro-ads-manager
+      name: neuro-ads-manager

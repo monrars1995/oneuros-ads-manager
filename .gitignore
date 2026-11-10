@@ -1,0 +1,28 @@
+# .gitignore — neuro-ads-manager
+
+.DS_Store
+*.DS_Store
+._*
+Thumbs.db
+
+node_modules/
+npm-debug.log*
+*.log
+tmp/
+temp/
+dist/
+
+# Segredos: nunca vão para o repositório
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.credentials*
+
+# Saídas geradas ao usar o plugin num projeto de cliente
+relatorios/
+auditorias/
+planos/
+conversao-offline/*.csv
+!skills/neuro-ads-manager/templates/*.csv

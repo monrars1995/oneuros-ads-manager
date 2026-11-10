@@ -1,0 +1,24 @@
+{
+  "descricao": "Padrão de nomenclatura do neuro-ads-manager. O nome carrega o que o relatório precisa filtrar: cliente, canal/destino, objetivo, público, criativo e mês. Cada perfil pode trocar o modelo em `nomenclatura`.",
+  "separador": " | ",
+  "campanha": "{cliente} | {canal} | {objetivo} | {segmento} | {mes}",
+  "conjunto": "{cliente} | {publico} | {geo} | {otimizacao}",
+  "anuncio": "{cliente} | {formato} | {angulo} | {codigo}",
+  "valores": {
+    "canal": ["WA", "SITE", "LP", "PERFIL", "FORM", "DM", "CATALOGO", "VIDEO"],
+    "objetivo": ["LEADS", "VENDAS", "ENGAJAMENTO", "TRAFEGO", "RECONHECIMENTO", "APP"],
+    "formato": ["IMG", "VID", "REELS", "STORY", "CARR", "POST"]
+  },
+  "exemplos": {
+    "campanha": "ACME | WA | LEADS | GERAL | 2026-11",
+    "conjunto": "ACME | AMPLO-25-54 | RAIO-10KM | CONVERSAS",
+    "anuncio": "ACME | REELS | DEPOIMENTO | C07"
+  },
+  "url_tags": "utm_source={{site_source_name}}&utm_medium=paid_social&utm_campaign={{campaign.id}}&utm_term={{adset.id}}&utm_content={{ad.id}}&placement={{placement}}",
+  "regras": [
+    "Mês no formato AAAA-MM; datas de início ficam no campo de agenda da campanha, não no nome.",
+    "Sem dados pessoais nem nomes de alunos, clientes ou pacientes no nome.",
+    "Código do criativo (C01, A07…) igual ao do inventário de criativos, para cruzar relatório e acervo.",
+    "Renomear em lote só por plano de mudança aprovado (operacao nova renomear-…)."
+  ]
+}

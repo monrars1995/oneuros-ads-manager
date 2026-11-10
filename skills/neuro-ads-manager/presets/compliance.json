@@ -1,0 +1,373 @@
+{
+  "descricao": "Conjuntos de regras de compliance por segmento. `regras` são padrões (regex, aplicados ao texto em minúsculas e sem acentos) que o comando `neuro-ads-manager compliance` procura na copy; `obrigatorios` são elementos que precisam aparecer; `checklist` é o que só uma pessoa (ou o subagente revisor-compliance) consegue conferir. É filtro de primeira passada: não substitui a revisão de contexto nem a do jurídico.",
+  "atualizado_em": "2026-11-08",
+  "conjuntos": {
+    "oab": {
+      "nome": "Advocacia (OAB)",
+      "base_legal": "Provimento 205/2021 do CFOAB; Código de Ética e Disciplina da OAB, arts. 39 a 47; Lei 8.906/1994 (Estatuto), art. 34, IV",
+      "regras": [
+        {
+          "id": "promessa_resultado",
+          "severidade": "critico",
+          "padrao": "(?<!sem )(?<!nao )(?<!nenhuma )\\bgarant(o|imos|ia|ida|ido)\\b|\\b100\\s?%|\\bcausa ganha|\\bganh(e|ar) (sua|a) (causa|acao|processo)|\\b(?<!sem )resultado garantido|\\bsucesso garantido|\\bvitoria (certa|garantida)|\\bcom certeza (voce )?(vai )?(ganha|receb)",
+          "mensagem": "Promessa ou sugestão de resultado.",
+          "sugestao": "Troque por informação: o que a lei prevê, quem tem direito, quais documentos reunir."
+        },
+        {
+          "id": "preco_gratuidade",
+          "severidade": "critico",
+          "padrao": "\\b(honorarios?|preco|valores? (acessive(l|is)|baixos?)|consulta (gratis|gratuita|sem custo)|gratis|gratuit[oa]s?|desconto|promocao|parcel(amos|e|ado)|sem custo|so paga (se|quando) ganhar|pague (so|apenas) no final)\\b",
+          "mensagem": "Menção a preço, honorários, gratuidade ou desconto como forma de captação.",
+          "sugestao": "Retire. Valores só no atendimento individual."
+        },
+        {
+          "id": "casos_concretos",
+          "severidade": "critico",
+          "padrao": "\\b(ganhamos|conseguimos (r\\$|para (o|a|um|uma) cliente|a indenizacao|a liminar)|caso real|nosso cliente (ganhou|recebeu|conseguiu)|indenizacao de r\\$|recuperamos r\\$|mais de \\d+ (causas|processos|acoes) (ganh|venc))",
+          "mensagem": "Divulgação de caso concreto ou de resultado obtido.",
+          "sugestao": "Fale do tema em tese, sem cliente, valor ou desfecho."
+        },
+        {
+          "id": "autoengrandecimento",
+          "severidade": "alto",
+          "padrao": "\\b(o melhor|os melhores|melhor (escritorio|advogad[oa]|banca)|numero (1|um)|n[o.]?\\s?1\\b|lider (em|no|na)|o maior escritorio|mais experiente|unico escritorio|referencia nacional|top \\d+)",
+          "mensagem": "Expressão de autoengrandecimento ou de comparação.",
+          "sugestao": "Use descrição factual: áreas de atuação, tempo de atuação, formação."
+        },
+        {
+          "id": "captacao_urgencia",
+          "severidade": "alto",
+          "padrao": "\\b(ligue (ja|agora)|chame (ja|agora)|fale (ja|agora) com|contrate (ja|agora|hoje)|nao perca (o prazo|tempo|essa)|ultimas vagas|vagas limitadas|corra|aproveite|so hoje|tempo limitado|antes que seja tarde)",
+          "mensagem": "Apelo de urgência ou chamada de captação direta.",
+          "sugestao": "CTA informativo: 'Saiba mais', 'Entenda seus direitos', 'Converse com a equipe'."
+        },
+        {
+          "id": "depoimento_cliente",
+          "severidade": "medio",
+          "padrao": "\\b(depoimentos?|o que (nossos|os) clientes dizem|clientes satisfeitos|avaliacao de clientes?)",
+          "mensagem": "Depoimento de cliente tende a configurar divulgação de caso concreto e de resultado.",
+          "sugestao": "Confirme com o responsável pelo compliance antes de usar."
+        },
+        {
+          "id": "especialista",
+          "severidade": "medio",
+          "padrao": "\\bespecialista(s)?\\b",
+          "mensagem": "'Especialista' só com título de especialização reconhecido.",
+          "sugestao": "Confirme o título; sem ele, diga 'atuação em…'."
+        },
+        {
+          "id": "sensacionalismo",
+          "severidade": "medio",
+          "padrao": "\\b(urgente|alerta|atencao!|voce (vai )?perder (tudo|seu|sua)|nao assine nada|cuidado com o golpe d[oa] (banco|empresa))",
+          "mensagem": "Tom sensacionalista ou de medo.",
+          "sugestao": "Tom sóbrio e informativo (Provimento 205: discrição e moderação)."
+        },
+        {
+          "id": "ostentacao",
+          "severidade": "medio",
+          "padrao": "\\b(carro de luxo|ostenta|mansao|jatinho|rolex|lamborghini|ferrari)",
+          "mensagem": "Ostentação ou exibição de bens.",
+          "sugestao": "Retire."
+        },
+        {
+          "id": "captacao_direta",
+          "severidade": "alto",
+          "padrao": "\\b(meu caso|seu caso tem solucao|resolvemos seu (caso|problema)|mande (seu|o) caso)\\b",
+          "mensagem": "Chamada de captação direta.",
+          "sugestao": "Fale do tema e convide para entender as regras, sem pedir o caso."
+        },
+        {
+          "id": "promessa_patrimonio",
+          "severidade": "alto",
+          "padrao": "\\b(blind(e|agem)( patrimonial| (o|seu) patrimonio)|proteja (seu|o) patrimonio|nao perca (sua|a) (fazenda|terra|propriedade)|salve (sua|a) (fazenda|empresa))",
+          "mensagem": "Promessa sobre patrimônio ou resultado.",
+          "sugestao": "Explique o instrumento jurídico e as condições, sem prometer o desfecho."
+        },
+        {
+          "id": "custa_caro",
+          "severidade": "medio",
+          "padrao": "\\b(custa caro|vai custar caro|prejuizo enorme)",
+          "mensagem": "Sensacionalismo.",
+          "sugestao": "Informe o fato com fonte."
+        },
+        {
+          "id": "acusacao_terceiro",
+          "severidade": "medio",
+          "padrao": "\\b(gerente do banco (te )?(engan|mente|mentiu|esconde)|o banco (te )?(engan|rouba|mente))",
+          "mensagem": "Acusação a terceiro (banco, gerente).",
+          "sugestao": "Descreva o direito, não o vilão."
+        },
+        {
+          "id": "numero_sem_fonte",
+          "severidade": "baixo",
+          "padrao": "\\b\\d{1,3}\\s?% (dos|das) (produtores|empresas|clientes|casos|pessoas)",
+          "mensagem": "Percentual: só com fonte citada e verificável.",
+          "sugestao": "Cite a fonte e o ano ou retire."
+        },
+        {
+          "id": "telefone_na_peca",
+          "severidade": "medio",
+          "padrao": "\\(?\\b\\d{2}\\)?\\s?9?\\d{4}[-\\s]?\\d{4}\\b",
+          "mensagem": "Telefone na peça (vira captação).",
+          "sugestao": "O contato fica no formulário ou no perfil."
+        }
+      ],
+      "obrigatorios": [
+        {
+          "id": "identificacao_oab",
+          "severidade": "medio",
+          "padrao": "(oab\\s*[/-]?\\s*[a-z]{2}\\b|oab\\s+n|inscricao na oab|sociedade de advogados|oab/[a-z]{2})",
+          "mensagem": "Identificação do advogado ou da sociedade com o número de inscrição na OAB (no anúncio ou, no mínimo, na página/perfil de destino)."
+        },
+        {
+          "id": "disclaimer",
+          "severidade": "medio",
+          "padrao": "(cada caso exige analise individual|sem garantia de resultado|publicidade (juridica )?informativa|conteudo informativo)",
+          "mensagem": "Disclaimer informativo no texto principal (ex.: \"Publicidade jurídica informativa. Cada caso exige análise individual. Sem garantia de resultado.\")."
+        }
+      ],
+      "checklist": [
+        "Conteúdo informativo (marketing jurídico de conteúdo), nunca oferta de serviço com preço, gratuidade ou promessa.",
+        "Nenhum cliente, caso, processo, valor de indenização ou print de decisão favorável.",
+        "Sem imagem de ostentação; ambiente e pessoas sóbrios.",
+        "CTA de informação ('Saiba mais', 'Entenda'); evite 'Contrate', 'Ligue já'.",
+        "Página/perfil de destino com o nome e a inscrição na OAB.",
+        "Advantage+ creative (aprimoramentos com IA) desligado: a Meta não pode reescrever o texto aprovado.",
+        "Sem segmentação por condição pessoal sensível (dívida, doença, processo em curso).",
+        "Captação ativa por mensagem (disparo em massa, abordagem não solicitada) é vedada; responder quem chamou é atendimento.",
+        "Sem estética de notícia nem endosso de veículo de imprensa; sem selos e números sem fonte.",
+        "Claims que dependem de prazo legal (MP, decreto, calendário) têm data de aposentadoria anotada no briefing.",
+        "Tema tributário/econômico que a Meta pode ler como questão social: reeditar sem enquadramento político ou seguir o fluxo de autorização (\"Pago por\" + categoria ISSUES_ELECTIONS_POLITICS).",
+        "Agente de atendimento (IA) não se apresenta como advogado, não promete resultado, prazo ou proteção patrimonial."
+      ]
+    },
+    "eca_lgpd": {
+      "nome": "Educação: crianças e adolescentes (ECA, LGPD, CONANDA)",
+      "base_legal": "ECA (Lei 8.069/1990), arts. 17 e 100; LGPD (Lei 13.709/2018), art. 14; Resolução CONANDA 163/2014; CDC, art. 37, §2º; Código do CONAR, seção 11",
+      "regras": [
+        {
+          "id": "dirigido_crianca",
+          "severidade": "alto",
+          "padrao": "\\b(crianca(s)?,? (pe(c|ç)a|pede|chame|convide) (pro|para o|aos|seus) (papai|mamae|pais)|pede pros? (seus )?pais|criancada|venha brincar com a gente|chama (teu|seu) pai)",
+          "mensagem": "Apelo dirigido à criança (abusivo pela Resolução CONANDA 163/2014).",
+          "sugestao": "Fale com o responsável: pais, mães, famílias."
+        },
+        {
+          "id": "dado_menor",
+          "severidade": "alto",
+          "padrao": "\\b(cpf|rg|certidao( de nascimento)?|data de nascimento|matricula n|historico escolar) d[oa]s? (aluno|aluna|crianca|filh[oa])",
+          "mensagem": "Pedido ou exposição de dado pessoal de menor.",
+          "sugestao": "Dados do aluno só no processo de matrícula, nunca no anúncio ou no chat do anúncio."
+        },
+        {
+          "id": "culpa_medo_pais",
+          "severidade": "medio",
+          "padrao": "\\b(depende (apenas|so|somente) de voce|o futuro del[ea] depende|nao deixe seu filho (para tras|ficar para tras)|seu filho vai ficar para tras|todo bom pai|toda boa mae|voce quer o melhor para seu filho\\?)",
+          "mensagem": "Apelo de culpa ou medo sobre os pais.",
+          "sugestao": "Mostre o benefício real (acolhimento, rotina, resultados da escola) sem culpar a família."
+        },
+        {
+          "id": "garantia_aprovacao",
+          "severidade": "alto",
+          "padrao": "\\b(aprovacao garantida|garantimos (a )?aprovacao|100\\s?% (de )?aprovad|passa(r)? com certeza)",
+          "mensagem": "Promessa de aprovação (publicidade enganosa, CDC art. 37).",
+          "sugestao": "Use dados verificáveis com fonte e ano."
+        },
+        {
+          "id": "bolsa_sem_condicao",
+          "severidade": "medio",
+          "padrao": "\\b(bolsas? de (ate )?\\d{1,3}\\s?%|ate \\d{1,3}\\s?% de (desconto|bolsa)|bolsa integral)",
+          "mensagem": "Bolsa ou desconto em percentual: a condição precisa estar clara.",
+          "sugestao": "Diga 'até X%', a elegibilidade e onde está o regulamento."
+        }
+      ],
+      "obrigatorios": [],
+      "checklist": [
+        "Termo de autorização de uso de imagem assinado pelos responsáveis para cada criança ou adolescente que aparece (guarde a referência do termo, não o termo, no repositório).",
+        "Não citar nome + série/turma de criança na copy, no vídeo ou na legenda.",
+        "Público de anúncio adulto (18+, de preferência 24+ para pais) e sem segmentação de menores.",
+        "Listas do CRM (famílias, leads) em públicos personalizados só com base legal registrada (consentimento ou legítimo interesse com teste de balanceamento) e opt-out respeitado.",
+        "Hash SHA-256 é pseudonimização, não anonimização: arquivos com hash ficam em pasta restrita e fora do Git.",
+        "Oferta e ano vigentes; nada de evento passado ou desconto vencido.",
+        "Uma oferta e um próximo passo por anúncio; CTA coerente com o destino (WhatsApp, visita, site).",
+        "Bot ou atendimento do anúncio não pede CPF, RG ou certidão no chat e se identifica como assistente virtual."
+      ]
+    },
+    "saude": {
+      "nome": "Saúde (medicina, odontologia, estética clínica)",
+      "base_legal": "Resolução CFM 2.336/2023; normas do CFO e dos demais conselhos; RDC Anvisa 96/2008 (medicamentos); CDC, art. 37",
+      "regras": [
+        {
+          "id": "promessa_cura",
+          "severidade": "critico",
+          "padrao": "\\b(cura (garantida|definitiva)|resultado garantido|elimin(e|a) de vez|100\\s?%|milagr|definitivo|resultado imediato|sem efeitos? colaterais?)",
+          "mensagem": "Promessa de cura ou de resultado.",
+          "sugestao": "Descreva o procedimento e indique avaliação individual."
+        },
+        {
+          "id": "sem_dor",
+          "severidade": "alto",
+          "padrao": "\\b(sem dor|indolor|zero dor|nao doi)",
+          "mensagem": "Promessa de ausência de dor.",
+          "sugestao": "Fale do cuidado com o conforto, sem prometer."
+        },
+        {
+          "id": "antes_depois",
+          "severidade": "medio",
+          "padrao": "\\bantes e depois\\b",
+          "mensagem": "Antes e depois só nas condições da resolução do conselho (finalidade educativa, sem promessa) e da política da Meta.",
+          "sugestao": "Na dúvida, não use."
+        },
+        {
+          "id": "preco_promocao",
+          "severidade": "medio",
+          "padrao": "\\b(promocao|desconto|preco (baixo|imperdivel)|gratis|consulta gratuita|black friday)",
+          "mensagem": "Promoção e preço em saúde têm regras do conselho.",
+          "sugestao": "Confirme a regra do conselho do profissional."
+        }
+      ],
+      "obrigatorios": [
+        {
+          "id": "responsavel_tecnico",
+          "severidade": "medio",
+          "padrao": "\\b(crm|cro|crefito|crn|coren|crp)\\s*[-/]?\\s*[a-z]{2}\\b",
+          "mensagem": "Nome e número de registro no conselho do responsável técnico (e RQE ao citar especialidade)."
+        }
+      ],
+      "checklist": [
+        "Sem afirmar ou insinuar condição de saúde do público (política de atributos pessoais da Meta).",
+        "Antes e depois: só nas condições do conselho e sem implicar resultado garantido.",
+        "Paciente identificável só com autorização expressa.",
+        "Nada de medicamento de venda sob prescrição em anúncio."
+      ]
+    },
+    "financeiro": {
+      "nome": "Crédito e serviços financeiros",
+      "base_legal": "CDC, arts. 37 e 52; normas do Banco Central; Políticas de Publicidade da Meta (produtos e serviços financeiros)",
+      "regras": [
+        {
+          "id": "ganho_garantido",
+          "severidade": "critico",
+          "padrao": "\\b(dinheiro facil|renda garantida|lucro garantido|retorno garantido|sem risco|enriquec)",
+          "mensagem": "Promessa de ganho ou ausência de risco.",
+          "sugestao": "Retire; informe riscos e condições."
+        },
+        {
+          "id": "credito_facil",
+          "severidade": "alto",
+          "padrao": "\\b(aprovacao (imediata|garantida|na hora)|sem consulta (ao )?(spc|serasa)|nome sujo|negativado aprovado)",
+          "mensagem": "Crédito 'garantido' ou sem análise.",
+          "sugestao": "Informe que há análise de crédito, o CET e as condições."
+        }
+      ],
+      "obrigatorios": [],
+      "checklist": [
+        "Declare a categoria especial de anúncio de produtos financeiros quando a política da Meta exigir no país da campanha.",
+        "Oferta de crédito com taxa, CET e condições acessíveis no destino."
+      ]
+    },
+    "estetica_tatuagem": {
+      "nome": "Estética e tatuagem",
+      "base_legal": "Políticas de Publicidade da Meta; CDC, art. 37; boas práticas de copy do segmento",
+      "regras": [
+        {
+          "id": "promessa_dor_prazo",
+          "severidade": "alto",
+          "padrao": "\\b(sem dor|zero dor|indolor|nao doi|uma (unica )?sessao|em (apenas )?1 dia|em um dia|resultado garantido)",
+          "mensagem": "Promessa de dor, de prazo ou de resultado.",
+          "sugestao": "Mostre técnica, processo e portfólio real."
+        },
+        {
+          "id": "oferta_pressao",
+          "severidade": "medio",
+          "padrao": "\\b(tempo limitado|so hoje|ultimas vagas|desconto|gratis|promocao relampago)",
+          "mensagem": "Oferta de pressão ou desconto fora da política do cliente.",
+          "sugestao": "Só com a oferta aprovada pelo cliente, com prazo e condição claros."
+        }
+      ],
+      "obrigatorios": [],
+      "limites_copy": {
+        "titulo": 40,
+        "primeira_linha": 125,
+        "corpo": 2200
+      },
+      "checklist": [
+        "Público 18+.",
+        "Sem segmentar por religião, saúde, sexualidade ou conteúdo de conversa inferidos.",
+        "Linhas de negócio separadas (cada serviço com o seu público).",
+        "Pelo menos 3 ângulos por conjunto (ex.: técnica, processo, depoimento) e mídias distintas.",
+        "Mensagem pré-preenchida do WhatsApp com marcador de origem do anúncio."
+      ]
+    },
+    "meta_politicas": {
+      "nome": "Políticas de Publicidade da Meta (todos os segmentos)",
+      "base_legal": "Padrões de Publicidade da Meta (transparency.meta.com/policies/ad-standards)",
+      "regras": [
+        {
+          "id": "atributos_pessoais",
+          "severidade": "alto",
+          "padrao": "\\bvoce (e|esta|tem|sofre (de|com)|anda)\\s+(gay|lesbica|bissexual|trans|evangelic|catolic|ateu|depressiv|ansios|diabetic|obes|acima do peso|endividad|negativad|divorciad|desempregad|gravida|doente)",
+          "mensagem": "Afirma ou insinua atributo pessoal do público (orientação, religião, saúde, finanças, situação).",
+          "sugestao": "Fale do tema, não da pessoa: 'Para quem quer entender…'."
+        },
+        {
+          "id": "atributo_financeiro",
+          "severidade": "alto",
+          "padrao": "\\b(sua|suas) dividas?\\b|\\bseu nome (esta )?(sujo|negativado)|\\bvoce (esta )?(devendo|quebrad)",
+          "mensagem": "Pressupõe a situação financeira do leitor (política de atributos pessoais).",
+          "sugestao": "'Para quem quer entender a renegociação…', sem afirmar que o leitor deve."
+        },
+        {
+          "id": "voce_que",
+          "severidade": "baixo",
+          "padrao": "\\bvoce que (esta|e|tem|sofre|perdeu|foi)\\b",
+          "mensagem": "Construção 'você que…' costuma insinuar atributo pessoal.",
+          "sugestao": "Confira se não identifica condição pessoal sensível."
+        },
+        {
+          "id": "endosso_plataforma",
+          "severidade": "medio",
+          "padrao": "\\b(facebook|instagram|meta|whatsapp) (aprova|recomenda|oficial|garante)",
+          "mensagem": "Insinua endosso da Meta.",
+          "sugestao": "Retire a referência."
+        },
+        {
+          "id": "isca_clique",
+          "severidade": "baixo",
+          "padrao": "\\b(voce nao vai acreditar|chocante|o segredo que|clique aqui)",
+          "mensagem": "Isca de clique: derruba qualidade e pode reprovar.",
+          "sugestao": "Promessa específica e verdadeira."
+        }
+      ],
+      "obrigatorios": [],
+      "checklist": [
+        "Categoria especial declarada quando o anúncio for de crédito/serviços financeiros, emprego, moradia ou questões sociais, eleições e política.",
+        "Prévia conferida em cada posicionamento (Feed, Stories, Reels) e área segura 9:16 respeitada.",
+        "Direitos da música e das imagens garantidos.",
+        "CTA coerente com o destino (não sugerir inscrição concluída ao abrir o WhatsApp).",
+        "Página de destino entrega o que o anúncio promete (mesma oferta, mesmo preço, mesmo prazo)."
+      ]
+    },
+    "lgpd": {
+      "nome": "Dados pessoais (LGPD) na operação de mídia",
+      "base_legal": "LGPD (Lei 13.709/2018), arts. 6º, 7º, 11 e 46",
+      "regras": [
+        {
+          "id": "dado_na_copy",
+          "severidade": "alto",
+          "padrao": "\\b(cpf|rg)\\s*:?\\s*\\d",
+          "mensagem": "Dado pessoal no texto do anúncio.",
+          "sugestao": "Retire."
+        }
+      ],
+      "obrigatorios": [],
+      "checklist": [
+        "Base legal registrada para cada uso de dado do CRM em mídia (públicos, CAPI, conversão offline).",
+        "Minimização: só os campos de correspondência (e-mail, telefone, nome, cidade, UF, CEP, país, external_id); nunca notas, mensagens, saúde ou tags sensíveis.",
+        "Contatos com opt-out, DND ou pedido de exclusão ficam fora de públicos e da CAPI.",
+        "Arquivos com dado cru ou com hash ficam fora do Git, em pasta restrita (permissão 600/700).",
+        "Relatórios compartilhados só com agregados ou pseudônimos."
+      ]
+    }
+  }
+}

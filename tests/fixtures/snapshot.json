@@ -1,0 +1,335 @@
+{
+  "meta": {
+    "generated_at": "2026-11-08T12:00:00Z",
+    "api_version": "v27.0",
+    "account_id": "act_0000000001",
+    "period": {
+      "since": "2026-11-01",
+      "until": "2026-11-07"
+    },
+    "previous_period": {
+      "since": "2026-10-25",
+      "until": "2026-10-31"
+    },
+    "calls": 12,
+    "source": "graph-api",
+    "perfil": "exemplo"
+  },
+  "account": {
+    "name": "Conta fictícia de teste",
+    "account_status": 1,
+    "currency": "BRL",
+    "timezone_name": "America/Sao_Paulo",
+    "amount_spent": "870000",
+    "spend_cap": "1000000"
+  },
+  "campaigns": [
+    {
+      "id": "c1",
+      "name": "ACME | JURIDICO | LEADS | FORM | 2026-11",
+      "objective": "OUTCOME_LEADS",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "daily_budget": null,
+      "special_ad_categories": []
+    },
+    {
+      "id": "c2",
+      "name": "Campanha antiga sem padrão",
+      "objective": "OUTCOME_TRAFFIC",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "daily_budget": "4500",
+      "special_ad_categories": []
+    }
+  ],
+  "adsets": [
+    {
+      "id": "s1",
+      "name": "ACME | AMPLO-30-60 | ESTADO-X | LEADS",
+      "campaign_id": "c1",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "optimization_goal": "LEAD_GENERATION",
+      "daily_budget": "40000",
+      "attribution_spec": [
+        {
+          "event_type": "CLICK_THROUGH",
+          "window_days": 7
+        }
+      ],
+      "targeting": {
+        "age_min": 30,
+        "excluded_custom_audiences": [
+          {
+            "id": "aud1"
+          }
+        ]
+      },
+      "learning_stage_info": {
+        "status": "SUCCESS"
+      }
+    },
+    {
+      "id": "s2",
+      "name": "ACME | INTERESSES | ESTADO-X | LEADS",
+      "campaign_id": "c1",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "optimization_goal": "LEAD_GENERATION",
+      "daily_budget": "9000",
+      "attribution_spec": [
+        {
+          "event_type": "CLICK_THROUGH",
+          "window_days": 1
+        }
+      ],
+      "targeting": {
+        "age_min": 18
+      },
+      "learning_stage_info": {
+        "status": "FAIL"
+      }
+    },
+    {
+      "id": "s3",
+      "name": "trafego perfil",
+      "campaign_id": "c2",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "optimization_goal": "LINK_CLICKS",
+      "daily_budget": null,
+      "targeting": {
+        "age_min": 18
+      }
+    }
+  ],
+  "ads": [
+    {
+      "id": "a1",
+      "name": "ACME | s1 | EXPLICATIVO | 20261101",
+      "adset_id": "s1",
+      "campaign_id": "c1",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "creative": {
+        "title": "Entenda o contrato antes de assinar",
+        "body": "Veja os pontos que merecem atenção. Publicidade jurídica informativa. Cada caso exige análise individual. Sem garantia de resultado."
+      }
+    },
+    {
+      "id": "a2",
+      "name": "ACME | s1 | CHECKLIST | 20261101",
+      "adset_id": "s1",
+      "campaign_id": "c1",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "creative": {
+        "title": "Garantimos o seu resultado",
+        "body": "Análise gratuita do seu caso. Ligue já!"
+      }
+    },
+    {
+      "id": "a3",
+      "name": "ACME | s2 | COMPARATIVO | 20261101",
+      "adset_id": "s2",
+      "campaign_id": "c1",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "creative": {
+        "title": "Rescindir não é o mesmo que cancelar",
+        "body": "Veja a diferença."
+      }
+    },
+    {
+      "id": "a4",
+      "name": "perfil 1",
+      "adset_id": "s3",
+      "campaign_id": "c2",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "creative": {
+        "title": "Siga o perfil",
+        "body": "Conteúdo informativo."
+      }
+    }
+  ],
+  "insights": {
+    "campaign": [
+      {
+        "campaign_id": "c1",
+        "campaign_name": "ACME | JURIDICO | LEADS | FORM | 2026-11",
+        "spend": "2700",
+        "impressions": "132000",
+        "reach": "54000",
+        "frequency": "2.44",
+        "inline_link_clicks": "1380",
+        "actions": [
+          {
+            "action_type": "lead",
+            "value": "30"
+          },
+          {
+            "action_type": "offsite_conversion.fb_pixel_lead",
+            "value": "30"
+          }
+        ]
+      },
+      {
+        "campaign_id": "c2",
+        "campaign_name": "Campanha antiga sem padrão",
+        "spend": "450",
+        "impressions": "72000",
+        "reach": "18000",
+        "frequency": "4",
+        "inline_link_clicks": "270",
+        "actions": []
+      }
+    ],
+    "adset": [
+      {
+        "adset_id": "s1",
+        "adset_name": "ACME | AMPLO-30-60 | ESTADO-X | LEADS",
+        "spend": "2160",
+        "impressions": "98000",
+        "reach": "45000",
+        "frequency": "2.18",
+        "inline_link_clicks": "1100",
+        "actions": [
+          {
+            "action_type": "lead",
+            "value": "28"
+          }
+        ]
+      },
+      {
+        "adset_id": "s2",
+        "adset_name": "ACME | INTERESSES | ESTADO-X | LEADS",
+        "spend": "540",
+        "impressions": "34000",
+        "reach": "11000",
+        "frequency": "3.09",
+        "inline_link_clicks": "280",
+        "actions": [
+          {
+            "action_type": "lead",
+            "value": "2"
+          }
+        ]
+      },
+      {
+        "adset_id": "s3",
+        "adset_name": "trafego perfil",
+        "spend": "450",
+        "impressions": "72000",
+        "reach": "18000",
+        "frequency": "4",
+        "inline_link_clicks": "270",
+        "actions": []
+      }
+    ],
+    "ad": [
+      {
+        "ad_id": "a1",
+        "ad_name": "ACME | s1 | EXPLICATIVO | 20261101",
+        "spend": "1800",
+        "impressions": "80000",
+        "inline_link_clicks": "920",
+        "actions": [
+          {
+            "action_type": "lead",
+            "value": "26"
+          }
+        ],
+        "quality_ranking": "ABOVE_AVERAGE"
+      },
+      {
+        "ad_id": "a2",
+        "ad_name": "ACME | s1 | CHECKLIST | 20261101",
+        "spend": "360",
+        "impressions": "18000",
+        "inline_link_clicks": "180",
+        "actions": [
+          {
+            "action_type": "lead",
+            "value": "2"
+          }
+        ],
+        "quality_ranking": "BELOW_AVERAGE_20"
+      },
+      {
+        "ad_id": "a3",
+        "ad_name": "ACME | s2 | COMPARATIVO | 20261101",
+        "spend": "540",
+        "impressions": "34000",
+        "inline_link_clicks": "280",
+        "actions": [
+          {
+            "action_type": "lead",
+            "value": "2"
+          }
+        ]
+      },
+      {
+        "ad_id": "a4",
+        "ad_name": "perfil 1",
+        "spend": "450",
+        "impressions": "72000",
+        "inline_link_clicks": "270",
+        "actions": []
+      }
+    ]
+  },
+  "daily": [
+    {
+      "date_start": "2026-11-01",
+      "spend": "450",
+      "impressions": "27000",
+      "inline_link_clicks": "230",
+      "actions": [
+        {
+          "action_type": "lead",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "date_start": "2026-11-02",
+      "spend": "450",
+      "impressions": "27000",
+      "inline_link_clicks": "220",
+      "actions": [
+        {
+          "action_type": "lead",
+          "value": "4"
+        }
+      ]
+    }
+  ],
+  "previous": [
+    {
+      "campaign_id": "c1",
+      "campaign_name": "ACME | JURIDICO | LEADS | FORM | 2026-11",
+      "spend": "2500",
+      "impressions": "125000",
+      "reach": "50000",
+      "inline_link_clicks": "1200",
+      "actions": [
+        {
+          "action_type": "lead",
+          "value": "24"
+        }
+      ]
+    }
+  ],
+  "audiences": [
+    {
+      "id": "aud1",
+      "name": "Clientes CRM (hash)",
+      "approximate_count_upper_bound": 1200,
+      "delivery_status": {
+        "code": 200
+      }
+    }
+  ]
+}

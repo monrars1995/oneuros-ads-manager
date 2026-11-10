@@ -1,0 +1,6 @@
+nome,email,telefone,cidade,uf,evento,data,valor,id_cliente,origem
+Maria Teste,Maria.Teste@Example.com ,(71) 98888-0001,Salvador,BA,Purchase,2026-11-05 10:00,1500.00,crm-001,system_generated
+João Exemplo,joao@example.com,71988880002,Lauro de Freitas,BA,Lead,2026-11-06,,crm-002,system_generated
+Sem Contato,,,Salvador,BA,Lead,2026-11-06,,,system_generated
+Antigo Loja,antigo@example.com,+55 71 98888-0003,Salvador,BA,Purchase,2026-10-01,800,crm-003,physical_store
+Antigo Site,velho@example.com,71988880004,Salvador,BA,Purchase,2026-10-01,800,crm-004,system_generated

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Comando `neuro-ads-manager` do plugin: o Claude Code põe esta pasta no PATH das sessões
+# enquanto o plugin estiver ativo. Repassa tudo para o CLI do pacote (cli/cli.js).
+DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec node "$DIR/../cli/cli.js" "$@"

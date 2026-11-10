@@ -1,0 +1,33 @@
+{
+  "name": "neuro-ads-manager",
+  "owner": {
+    "name": "Ramon Ribeiro",
+    "url": "https://github.com/monrars1995"
+  },
+  "description": "Marketplace do plugin Neuro Ads Manager (gestor de tráfego pago para agentes de IA).",
+  "metadata": {
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "neuro-ads-manager",
+      "source": "./",
+      "description": "Gestor de tráfego pago (Meta Ads) para agentes de IA: auditoria de conta, plano de campanha, relatório, criativos e copy com compliance por segmento (OAB, ECA/LGPD, saúde) e conferência de conversão (pixel, CAPI, offline do CRM), com padrões de mercado validados em projetos reais. Só lê a conta; mudanças por plano com hash e aprovação.",
+      "homepage": "https://github.com/monrars1995/oneuros-ads-manager",
+      "license": "MIT",
+      "keywords": [
+        "paid-media",
+        "traffic-manager",
+        "meta-ads",
+        "facebook-ads",
+        "instagram-ads",
+        "conversions-api",
+        "offline-conversions",
+        "compliance",
+        "oab",
+        "lgpd",
+        "pt-br"
+      ]
+    }
+  ]
+}
